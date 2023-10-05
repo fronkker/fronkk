@@ -1,11 +1,10 @@
-import './style.css'
+// import TestBtn from "./components/TestBtn.vue";
 
-import TestBtn from "./components/TestBtn.vue";
+export * from "./components"
 
-export {TestBtn}
+// export default {
+//     install: (app) => {
+//         app.component('TestBtn', TestBtn)
+//     }
+// }
 
-export default {
-    install: (app) => {
-        app.component('TestBtn', TestBtn)
-    }
-}
