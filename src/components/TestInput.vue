@@ -1,8 +1,8 @@
 <template>
   <div class="f-input-field">
     <div v-text="label" class="f-label"/>
-    <input placeholder="ajd" v-model="value" class="f-input"
-           @update:model-value="onUpdateValue"
+    <input placeholder="ajd" :value="inputValue" class="f-input"
+           @input="onUpdateValue"
            :class="{
               'invalid': !valid
            }"
@@ -14,23 +14,48 @@
 <script setup>
 import {ref, watch} from "vue";
 
-const props = defineProps(['modelValue', 'label', 'hint', 'rules'])
+const props = defineProps(['modelValue', 'label', 'hint', 'rules', 'type'])
 
-const value = ref(props.modelValue)
+const inputValue = ref(props.modelValue)
+let unmaskedValue = ''
 
 const regRules = props.rules.map(rule => rule = new RegExp(rule))
 
 const valid = ref(true)
 
-const onUpdateValue = () => {
-  if (value.value) {
-    valid.value = regRules.every(rule => {
-      rule.test(value)
-    })
+const TYPES = {
+  PASSWORD: 'password'
+}
+
+const onUpdateValue = (e) => {
+  inputValue.value = e.target.value
+  unmaskedValue = e.target.value
+
+  console.log(e.target.value)
+
+  // TODO mask 다시 구조 잡고 짜보자
+  if (inputValue.value) {
+    let maskedValue = []
+
+    console.log(unmaskedValue)
+
+    if (props.type === TYPES.PASSWORD) {
+      maskedValue = new Array(unmaskedValue?.length).fill('*')
+
+      inputValue.value = maskedValue.join('')
+    }
+
+    if (regRules?.length) {
+      valid.value = regRules.every(rule => {
+        rule.test(unmaskedValue)
+      })
+    }
+
   } else {
     valid.value = true
   }
 }
+
 </script>
 
 <style scoped lang="scss">
