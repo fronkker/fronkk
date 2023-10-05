@@ -1,6 +1,6 @@
 {
-  "name": "@aj-package/vue-j-design",
-  "version": "0.0.8",
+  "name": "fronk",
+  "version": "0.0.0",
   "private": false,
   "publishConfig": {
     "registry": "http://172.30.1.100:8081/repository/npm-private/"
@@ -26,5 +26,13 @@
   "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
   "author": "",
   "license": "ISC",
-  "main": "vite.config.js"
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quiet-space/fronkk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/quiet-space/fronkk/issues"
+  },
+  "homepage": "https://github.com/quiet-space/fronkk#readme"
 }
