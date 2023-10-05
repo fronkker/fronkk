@@ -7,7 +7,7 @@ export default defineConfig({
     emptyOutDir:false,
     lib:{
       entry:path.resolve(__dirname,'src/main.js'),
-      name:'vue-j-design',
+      name:'fronkk',
       fileName:(format)=>`${format}.js`
     },
     rollupOptions:{

@@ -1,10 +1,18 @@
-// import TestBtn from "./components/TestBtn.vue";
+import TestBtn from "./components/TestBtn.vue";
+import TestInput from "./components/TestInput.vue";
 
-export * from "./components"
+export {TestBtn, TestInput}
 
-// export default {
-//     install: (app) => {
-//         app.component('TestBtn', TestBtn)
-//     }
-// }
+
+// TODO 여기부터 개발용
+
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
+
+const app = createApp(App)
+// app.component('TestBtn', TestBtn)
+
+app.mount('#app')
+
 
