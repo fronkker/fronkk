@@ -2,57 +2,42 @@
   <div class="f-input-field">
     <div v-text="label" class="f-label"/>
     <input placeholder="ajd" :value="inputValue" class="f-input"
+           :type="type"
            @input="onUpdateValue"
            :class="{
-              'invalid': !valid
+              'invalid': !valid || !!invalid
            }"
     >
-    <div v-if="!valid" v-text="hint" class="f-hint"/>
+    <div v-if="!valid || !!invalid" v-text="hint" class="f-hint"/>
   </div>
 </template>
 
 <script setup>
-import {ref, watch} from "vue";
+import {ref} from "vue";
 
-const props = defineProps(['modelValue', 'label', 'hint', 'rules', 'type'])
+const props = defineProps({
+  modelValue: [String, Object, null],
+  label: [String, null],
+  hint: [String, null],
+  rules: [Object, null],
+  type: [String, null],
+  invalid: [Boolean, null]
+})
 
 const inputValue = ref(props.modelValue)
-let unmaskedValue = ''
-
-const regRules = props.rules.map(rule => rule = new RegExp(rule))
 
 const valid = ref(true)
-
-const TYPES = {
-  PASSWORD: 'password'
-}
+const proxyRules = ref(props.rules.map(r => new RegExp(r)))
 
 const onUpdateValue = (e) => {
   inputValue.value = e.target.value
-  unmaskedValue = e.target.value
 
-  console.log(e.target.value)
+  if (!inputValue.value) {
+    return valid.value = true
+  }
 
-  // TODO mask 다시 구조 잡고 짜보자
-  if (inputValue.value) {
-    let maskedValue = []
-
-    console.log(unmaskedValue)
-
-    if (props.type === TYPES.PASSWORD) {
-      maskedValue = new Array(unmaskedValue?.length).fill('*')
-
-      inputValue.value = maskedValue.join('')
-    }
-
-    if (regRules?.length) {
-      valid.value = regRules.every(rule => {
-        rule.test(unmaskedValue)
-      })
-    }
-
-  } else {
-    valid.value = true
+  if (proxyRules.value.length > 0) {
+    proxyRules.value.forEach(rule => valid.value = rule.test(inputValue.value))
   }
 }
 
@@ -82,6 +67,12 @@ const onUpdateValue = (e) => {
   width: 200px;
   height: 10px;
   border-radius: 4px;
+}
+
+.f-input:focus {
+  &.invalid {
+    outline: 1px solid #{$error};
+  }
 }
 
 .invalid {
