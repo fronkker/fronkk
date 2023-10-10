@@ -1,14 +1,14 @@
 <template>
   <div class="entire-container">
     <button class="f-select-container" @click="onClickSelect">
-        <div>{{ selected }}</div>
+      <div>{{ selected[optionValue] ? selected[optionLabel] : selected }}</div>
 
-        <div class="icon-container"/>
+      <div class="icon-container"/>
     </button>
 
     <ul v-if="visibleOption" class="f-option-container">
-      <li v-for="option of options" class="f-option">
-        <div class="f-option-label">{{option[optionValue]}}</div>
+      <li v-for="option of options" class="f-option" @click="onChange(option)">
+        <div class="f-option-label">{{ option[optionValue] }}</div>
       </li>
     </ul>
   </div>
@@ -38,24 +38,19 @@ const onClickSelect = () => {
 }
 
 const selected = ref()
-
 watch(() => props.modelValue, value => {
-  if (props.emitValue) {
-    selected.value = value[props.optionValue]
+  if(props.emitValue) {
+    selected.value = props.options.find(option =>
+      option[props.optionValue] === value
+    )
   } else {
     selected.value = value
   }
 }, {
   immediate: true
 })
-const onChange = ({target}) => {
-  if (props.emitValue) {
-    emit('update:modelValue', props.options.find(option =>
-        String(option[props.optionValue]) === target.value
-    ))
-  } else {
-    emit('update:modelValue', target.value)
-  }
+const onChange = (value) => {
+  emit('update:modelValue', props.emitValue ? value[props.optionValue] : value)
 }
 
 </script>
@@ -93,12 +88,14 @@ select:focus {
   outline: 1px solid #{$coolGray20};
   border-radius: 4px;
 }
+
 .icon-container {
   width: 12px;
   height: 7px;
 
   background: url('../assets/img/arrow_down.png') no-repeat center / contain;
 }
+
 .f-select {
   width: 100%;
   height: 100%;
@@ -107,9 +104,11 @@ select:focus {
 
   font-size: 16px;
 }
+
 ul {
   margin-top: 5px;
 }
+
 .f-option-container {
   width: inherit;
   height: fit-content;
@@ -120,9 +119,10 @@ ul {
   outline: 1px solid #{$coolGray20};
   border-radius: 4px;
 
-  list-style:none;
+  list-style: none;
   padding-left: 0px;
 }
+
 .f-option {
   height: 33px;
 
@@ -132,9 +132,11 @@ ul {
 
   cursor: pointer;
 }
+
 .f-option:hover {
   background: #{$surfaceGray};
 }
+
 .f-option-label {
   padding-left: 20px;
 }

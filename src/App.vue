@@ -9,9 +9,6 @@
           label="셀렉트~"
           placeholder="플레이스홀더"
 
-
-          emit-value
-
           v-model="value"
           :options="options"
       />
