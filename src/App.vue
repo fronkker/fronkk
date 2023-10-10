@@ -1,16 +1,21 @@
 <template>
-  <div>
-    emitValue :: {{value}}
-    <f-select
-        label="셀렉트~"
-        placeholder="플레이스홀더"
+  <div style="display: flex;">
+    <div style="min-width: 300px; height: 300px; background: lightyellow">
+      ~~
+    </div>
+    <div>
+      emitValue :: {{ value }}
+      <f-select
+          label="셀렉트~"
+          placeholder="플레이스홀더"
 
 
-        emit-value
+          emit-value
 
-        v-model="value"
-        :options="options"
-    />
+          v-model="value"
+          :options="options"
+      />
+    </div>
   </div>
   <div v-if="false">
     <f-input
@@ -22,6 +27,7 @@
         type="password"
     />
   </div>
+  <div style="with: 300px; height: 300px; background: skyblue"/>
 </template>
 
 <script setup>
@@ -30,7 +36,7 @@ import {ref} from "vue";
 import FSelect from "./components/FSelect.vue";
 
 // const value = ref(1)
-const value = ref({id:1, name: 'a'})
+const value = ref({id: 1, name: 'a'})
 
 const options = [
   {

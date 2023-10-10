@@ -1,19 +1,17 @@
 <template>
+  <div class="entire-container">
+    <button class="f-select-container" @click="onClickSelect">
+        <div>{{ selected }}</div>
 
-  <div class="f-select-container">
-    <select :value="selected" class="f-select" @change="onChange">
-      <option class="f-option"
-              v-for="option of options"
-              :value="option[optionValue]">
-        {{ option[optionLabel] }}
-      </option>
-    </select>
+        <div class="icon-container"/>
+    </button>
 
-    <div class="icon-container">
-
-    </div>
+    <ul v-if="visibleOption" class="f-option-container">
+      <li v-for="option of options" class="f-option">
+        <div class="f-option-label">{{option[optionValue]}}</div>
+      </li>
+    </ul>
   </div>
-
 </template>
 
 <script setup>
@@ -32,6 +30,12 @@ const props = defineProps({
   optionLabel: {type: String, default: 'name'}
 })
 const emit = defineEmits(['update:modelValue'])
+
+const visibleOption = ref(true) //FIXME
+// const visibleOption = ref(false)
+const onClickSelect = () => {
+  visibleOption.value = !visibleOption.value
+}
 
 const selected = ref()
 
@@ -69,29 +73,33 @@ select:focus {
   outline: none;
 }
 
-.f-select-container {
+.entire-container {
   width: 288px;
   height: 48px;
+
+  position: relative;
+}
+
+.f-select-container {
+  width: inherit;
+  height: inherit;
 
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
-  border: 1px solid #{$coolGray20};
+  background: white;
+  outline: 1px solid #{$coolGray20};
   border-radius: 4px;
 }
 .icon-container {
   width: 12px;
   height: 7px;
 
-  margin-right: 20px;
-
   background: url('../assets/img/arrow_down.png') no-repeat center / contain;
 }
-
 .f-select {
-  margin-left: 20px;
-
   width: 100%;
   height: 100%;
 
@@ -99,10 +107,35 @@ select:focus {
 
   font-size: 16px;
 }
+ul {
+  margin-top: 5px;
+}
+.f-option-container {
+  width: inherit;
+  height: fit-content;
 
+  position: absolute;
+
+  background: white;
+  outline: 1px solid #{$coolGray20};
+  border-radius: 4px;
+
+  list-style:none;
+  padding-left: 0px;
+}
 .f-option {
-  height: 30px;
-  background: pink;
+  height: 33px;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
   cursor: pointer;
+}
+.f-option:hover {
+  background: #{$surfaceGray};
+}
+.f-option-label {
+  padding-left: 20px;
 }
 </style>
