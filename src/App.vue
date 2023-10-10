@@ -1,6 +1,20 @@
 <template>
   <div>
-    <test-input
+    emitValue :: {{value}}
+    <f-select
+        label="셀렉트~"
+        placeholder="플레이스홀더"
+
+
+        emit-value
+
+        v-model="value"
+        :options="options"
+    />
+  </div>
+  <div v-if="false">
+    <f-input
+        placeholder="sdfdfd"
         v-model="value"
         label="아이디"
         :rules="[regExp]"
@@ -11,10 +25,31 @@
 </template>
 
 <script setup>
-import TestInput from "./components/TestInput.vue";
+import FInput from "./components/FInput.vue";
 import {ref} from "vue";
+import FSelect from "./components/FSelect.vue";
 
-const value = ref()
+// const value = ref(1)
+const value = ref({id:1, name: 'a'})
+
+const options = [
+  {
+    id: 1,
+    name: 'a'
+  },
+  {
+    id: 2,
+    name: 'b'
+  },
+  {
+    id: 3,
+    name: 'c'
+  },
+  {
+    id: 4,
+    name: 'd'
+  },
+]
 
 const regExp = /^(010|011|016|017|018|019)-\d{3,4}-\d{4}$/u
 const regExp2 = /[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]/gi

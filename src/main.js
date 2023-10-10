@@ -1,7 +1,7 @@
 import TestBtn from "./components/TestBtn.vue";
-import TestInput from "./components/TestInput.vue";
+import FInput from "./components/FInput.vue";
 
-export {TestBtn, TestInput}
+export {TestBtn, FInput}
 
 
 // TODO 여기부터 개발용

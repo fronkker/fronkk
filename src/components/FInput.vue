@@ -1,14 +1,21 @@
 <template>
   <div class="f-input-field">
-    <div v-text="label" class="f-label"/>
-    <input placeholder="ajd" :value="inputValue" class="f-input"
+    <div v-text="label"
+         class="f-label"
+    />
+    <input :placeholder="placeholder"
+           :value="inputValue"
            :type="type"
-           @input="onUpdateValue"
+           class="f-input"
            :class="{
               'invalid': !valid || !!invalid
            }"
+           @input="onUpdateValue"
     >
-    <div v-if="!valid || !!invalid" v-text="hint" class="f-hint"/>
+    <div v-if="!valid || !!invalid"
+         v-text="hint"
+         class="f-hint"
+    />
   </div>
 </template>
 
@@ -16,12 +23,13 @@
 import {ref} from "vue";
 
 const props = defineProps({
-  modelValue: [String, Object, null],
-  label: [String, null],
-  hint: [String, null],
-  rules: [Object, null],
-  type: [String, null],
-  invalid: [Boolean, null]
+  modelValue: [String, Object],
+  placeholder: String,
+  label: String,
+  hint: String,
+  rules: Object,
+  type: String,
+  invalid: Boolean
 })
 
 const inputValue = ref(props.modelValue)
