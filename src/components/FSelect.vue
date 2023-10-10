@@ -1,14 +1,22 @@
 <template>
-  <div class="entire-container">
-    <button class="f-select-container" @click="onClickSelect">
+  <div class="entire-container" style="background: pink"
+       @focusout="onCloseOption"
+  >
+    <button class="f-select-container" @click="onOpenOption">
       <div>{{ selected[optionValue] ? selected[optionLabel] : selected }}</div>
 
       <div class="icon-container"/>
     </button>
 
-    <ul v-if="visibleOption" class="f-option-container">
-      <li v-for="option of options" class="f-option" @click="onChange(option)">
-        <div class="f-option-label">{{ option[optionValue] }}</div>
+    <ul v-if="visibleOption"
+        class="f-option-container"
+        @mouseenter="onMouseEnter"
+        @mouseleave="onMouseLeave"
+    >
+      <li v-for="option of options"
+          class="f-option"
+          @click="onChange(option)">
+        <div class="f-option-label">{{ option[optionLabel] }}</div>
       </li>
     </ul>
   </div>
@@ -31,17 +39,29 @@ const props = defineProps({
 })
 const emit = defineEmits(['update:modelValue'])
 
-const visibleOption = ref(true) //FIXME
-// const visibleOption = ref(false)
-const onClickSelect = () => {
-  visibleOption.value = !visibleOption.value
+const selected = ref()
+const visibleOption = ref(false)
+
+let preventClose = false
+const onOpenOption = () => {
+  visibleOption.value = true
+}
+const onMouseEnter = () => {
+  preventClose = true
+}
+const onMouseLeave = () => {
+  preventClose = false
+}
+const onCloseOption = () => {
+  if (!preventClose) {
+    visibleOption.value = false
+  }
 }
 
-const selected = ref()
 watch(() => props.modelValue, value => {
-  if(props.emitValue) {
+  if (props.emitValue) {
     selected.value = props.options.find(option =>
-      option[props.optionValue] === value
+        option[props.optionValue] === value
     )
   } else {
     selected.value = value
@@ -49,8 +69,11 @@ watch(() => props.modelValue, value => {
 }, {
   immediate: true
 })
-const onChange = (value) => {
-  emit('update:modelValue', props.emitValue ? value[props.optionValue] : value)
+const onChange = (changedValue) => {
+  emit('update:modelValue', props.emitValue ? changedValue[props.optionValue] : changedValue)
+
+  preventClose = false
+  onCloseOption()
 }
 
 </script>
@@ -114,6 +137,7 @@ ul {
   height: fit-content;
 
   position: absolute;
+  z-index: 9999;
 
   background: white;
   outline: 1px solid #{$coolGray20};
