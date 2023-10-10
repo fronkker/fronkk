@@ -1,7 +1,5 @@
 <template>
-  <div class="entire-container" style="background: pink"
-       @focusout="onCloseOption"
-  >
+  <div class="entire-container" @focusout="onCloseOption">
     <button class="f-select-container" @click="onOpenOption">
       <div>{{ selected[optionValue] ? selected[optionLabel] : selected }}</div>
 

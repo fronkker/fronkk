@@ -1,6 +1,6 @@
 {
   "name": "fronkk",
-  "version": "0.0.221",
+  "version": "0.0.23",
   "private": false,
   "publishConfig": {
     "registry": "http://172.30.1.100:8081/repository/npm-private/"

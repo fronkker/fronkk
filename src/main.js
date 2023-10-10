@@ -1,7 +1,8 @@
 import TestBtn from "./components/TestBtn.vue";
 import FInput from "./components/FInput.vue";
+import FSelect from "./components/FSelect.vue";
 
-export {TestBtn, FInput}
+export {TestBtn, FInput, FSelect}
 
 
 // TODO 여기부터 개발용
