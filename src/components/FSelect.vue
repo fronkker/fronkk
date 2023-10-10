@@ -42,7 +42,7 @@ const visibleOption = ref(false)
 
 let preventClose = false
 const onOpenOption = () => {
-  visibleOption.value = true
+  visibleOption.value = !visibleOption.value
 }
 const onMouseEnter = () => {
   preventClose = true
@@ -77,12 +77,17 @@ const onChange = (changedValue) => {
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/css/_color.scss";
-
 select {
   -moz-appearance: none; /* Firefox */
   -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
+}
+
+button {
+  //border: none;
+  //padding-left: 20px;
+  //padding-right: 20px;
+  //font-size: 16px;
 }
 
 select:focus {
@@ -105,8 +110,14 @@ select:focus {
   align-items: center;
   justify-content: space-between;
 
+  border: none;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+
   background: white;
-  outline: 1px solid #{$coolGray20};
+  outline: 1px solid #DDE1E6;
   border-radius: 4px;
 }
 
@@ -138,7 +149,7 @@ ul {
   z-index: 9999;
 
   background: white;
-  outline: 1px solid #{$coolGray20};
+  outline: 1px solid #DDE1E6;
   border-radius: 4px;
 
   list-style: none;
@@ -156,7 +167,7 @@ ul {
 }
 
 .f-option:hover {
-  background: #{$surfaceGray};
+  background: #f6f6f6;
 }
 
 .f-option-label {
