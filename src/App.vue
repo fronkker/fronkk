@@ -1,9 +1,4 @@
 <template>
-  <div style="display: flex;">
-    <div style="min-width: 300px; height: 300px; background: lightyellow">
-      ~~
-    </div>
-    <div>
       <f-select
           label="셀렉트~"
           placeholder="플레이스홀더"
@@ -12,24 +7,17 @@
           :options="options"
       />
 
-      <f-select
-          label="셀렉트~"
-          placeholder="플레이스홀더"
+<!--      <f-select-->
+<!--          label="셀렉트~"-->
+<!--          placeholder="플레이스홀더"-->
 
-          emit-value
+<!--          emit-value-->
 
-          v-model="valueForEmit"
-          :options="options"
-      />
-      <div style="min-width: 300px; height: 200px; background: greenyellow">
-        ~~
-      </div>
-    </div>
+<!--          v-model="valueForEmit"-->
+<!--          :options="options"-->
+<!--      />-->
 
-    <div style="min-width: 300px; height: 300px; background: lightyellow">
-      ~~
-    </div>
-  </div>
+
   <div v-if="false">
     <f-input
         placeholder="sdfdfd"
@@ -40,7 +28,6 @@
         type="password"
     />
   </div>
-  <div style="with: 300px; height: 300px; background: skyblue"/>
 </template>
 
 <script setup>
