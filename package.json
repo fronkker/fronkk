@@ -5,11 +5,7 @@
   "publishConfig": {
     "registry": "http://172.30.1.100:8081/repository/npm-private/"
   },
-  "files": [
-    "dist",
-    "src",
-    "/src/assets/css/common.scss"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "import": "./dist/umd.js"
