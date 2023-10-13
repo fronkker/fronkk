@@ -27,8 +27,4 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
       - run: npm run build
-      - run: npm config fix
-      - run: npm config set registry="https://nexus.ajdlabs.kr/repository/npm-private/"
-      - run: npm config set _auth="YWRcHVibGlzaF9tYW5hZ2VyOmFqQGRldg=="
-      - run: npm config ls
-      - run: npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
+      - run: npm publish --registry=https://nexus.ajdlabs.kr/repository/npm-private/:_authToken=YWRcHVibGlzaF9tYW5hZ2VyOmFqQGRldg==
