@@ -17,17 +17,12 @@
 name: Automate Build and Publish
 
 on:
-  merge_group:
-    types: [ checks_requested ]
+  pull_request:
+    branches: [ 'main' ]
 
 jobs:
-  build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
-    runs-on: ubuntu-latest # 프로세스를 실행할 환경
-    steps: # 실행될 스크립트
-      - run: npm build
 
-  publish:
-    needs: [ build ] # build 이후 순차적으로 publish이 되도록 설정
+  install:
     runs-on: ubuntu-latest
     steps:
       # 코드 저장소의 코드를 CI 서버로 가지고온다
@@ -36,6 +31,17 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-          registry-url: 'https://nexus.ajdlabs.kr/repository/npm-private/'
+          registry-url: 'https://registry.npmjs.org/'
       - run: npm ci # package-lock.json에 명시된 패키지를 nodE_modules에 적재
-      - run: npm publish # auth 필요한지 확인하기 TODO
+
+  build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
+    needs: [ install ]
+    runs-on: ubuntu-latest # 프로세스를 실행할 환경
+    steps: # 실행될 스크립트
+      - run: npm build
+
+  publish:
+    needs: [ install, build ] # build 이후 순차적으로 publish이 되도록 설정
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/ # auth 필요한지 확인하기 TODO
