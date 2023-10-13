@@ -21,10 +21,13 @@ on:
     branches: [ 'main' ]
 
 jobs:
+  uninstall:
+
   install:
     runs-on: ubuntu-latest
     steps:
-      - run: npm install --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 nodE_modules에 적재
+      - uses: actions/checkout@v3
+      - run: npm install vite --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 node_modules에 적재
 
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
     needs: [ install ]
@@ -36,4 +39,14 @@ jobs:
     needs: [ install, build ] # build 이후 순차적으로 publish이 되도록 설정
     runs-on: ubuntu-latest
     steps:
+      - uses: sonatype-nexus-community/nexus-repo-github-action@master
+        with:
+          serverUrl: https://nexus.ajdlabs.kr
+          username: admin
+          password: aj@dev
+          format: maven2
+          repository: npm-private
+          coordinates: groupId=com.example artifactId=app version=1.0.0
+          assets: extension=jar
+          filename: ./fronkk-1.0.0.jar
       - run: npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/ # auth 필요한지 확인하기 TODO
