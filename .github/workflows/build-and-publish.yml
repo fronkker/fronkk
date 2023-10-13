@@ -27,7 +27,9 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm install --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 node_modules에 적재
       - run: npm run build
-      - run: npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/:_authToken="admin:aj@dev"
+      - run: npm install -g npm-cli-login
+      - run: npm-cli-login login -u admin -p aj@dev -e liexil97@gmail.com -r https://nexus.ajdlabs.kr/repository/npm-private/
+      - run: npm publish --registry=https://nexus.ajdlabs.kr/repository/npm-private/
       - uses: sonatype-nexus-community/nexus-repo-github-action@master
         with:
           serverUrl: https://nexus.ajdlabs.kr
