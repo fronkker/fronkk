@@ -28,6 +28,10 @@ jobs:
       - run: npm config fix
       - run: npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
       - run: npm run build
+
+  publish:
+    runs-on: self-hosted 
+    steps:
       - run: npm config fix
       - run: npm config set registry="https://nexus.ajdlabs.kr/repository/npm-private/"
       - run: npm config set _auth="YWRcHVibGlzaF9tYW5hZ2VyOmFqQGRldg=="
