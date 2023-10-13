@@ -18,7 +18,7 @@ name: Automate Build and Publish
 
 on:
   pull_request:
-    branches: [ 'develop' ] # TODO , 'main'으로 수정 필요  
+    branches: [ 'develop' ] # TODO , 'main'으로 수정 필요
 
 jobs:
   install:
@@ -31,7 +31,7 @@ jobs:
     needs: [ install ]
     runs-on: ubuntu-latest # 프로세스를 실행할 환경
     steps: # 실행될 스크립트
-      - run: npm run build
+      - run: vite build
 
   publish:
     needs: [ install, build ] # build 이후 순차적으로 publish이 되도록 설정
