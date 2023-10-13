@@ -16,13 +16,9 @@
 
 name: Automate Build and Publish
 
-# 해당 워크플로우가 trigger되는 이벤트에 대한 설정
 on:
-  # 작성 가이드 : https://docs.github.com/en/webhooks/webhook-events-and-payloads?actionType=assigned#pull_request
-  pull_request: # trigger되는 이벤트
-    types: [ assigned ] # pull_request 이벤트가 [ ...types ] 상태로 되었을 때 workflow 실행
-    branches: # 이벤트가 발생하는 branches 설정 (다수 가능)
-      - main
+  merge_group:
+    types: [ checks_requested ]
 
 jobs:
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
@@ -31,7 +27,7 @@ jobs:
       - run: npm build
 
   publish:
-    needs: [build] # build 이후 순차적으로 publish이 되도록 설정
+    needs: [ build ] # build 이후 순차적으로 publish이 되도록 설정
     runs-on: ubuntu-latest
     steps:
       # 코드 저장소의 코드를 CI 서버로 가지고온다
