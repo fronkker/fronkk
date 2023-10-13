@@ -24,7 +24,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-      - run: npm ci --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 nodE_modules에 적재
+      - run: npm install --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 nodE_modules에 적재
 
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
     needs: [ install ]
