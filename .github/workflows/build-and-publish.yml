@@ -28,7 +28,7 @@ jobs:
       - run: npm install --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 node_modules에 적재
       - run: npm version
       - run: npm run build
-      - run: echo -e "admin\naj@dev\nliexil97@gmail.com" | npm adduser
+      - run: echo -e 'admin\naj@dev\nliexil97@gmail.com' | npm login -e liexil97@gmail.com -r https://registry.npmjs.org/
       - run: npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/ # auth 필요한지 확인하기 TODO
       - uses: sonatype-nexus-community/nexus-repo-github-action@master
         with:
