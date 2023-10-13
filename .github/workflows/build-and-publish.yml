@@ -26,7 +26,8 @@ jobs:
     steps: # 실행될 스크립트
       - uses: actions/checkout@v3
       - run: npm install --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 node_modules에 적재
-      - run: vite build
+      - run: npm version
+      - run: npm run build
 
   publish:
     needs: [ build ] # build 이후 순차적으로 publish이 되도록 설정
