@@ -21,18 +21,10 @@ on:
     branches: [ 'main' ]
 
 jobs:
-
   install:
     runs-on: ubuntu-latest
     steps:
-      # 코드 저장소의 코드를 CI 서버로 가지고온다
-      - uses: actions/checkout@v4
-      # Setup .npmrc file to publish to npm / .npmrc에서 사설 registry를 관리하므로 생략 불가능!
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org/'
-      - run: npm ci # package-lock.json에 명시된 패키지를 nodE_modules에 적재
+      - run: npm ci --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 nodE_modules에 적재
 
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
     needs: [ install ]
