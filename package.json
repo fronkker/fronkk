@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "private": false,
   "publishConfig": {
-    "registry": "http://172.30.1.100:8081/repository/npm-private/"
+    "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
   },
   "files": ["dist"],
   "exports": {
