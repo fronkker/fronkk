@@ -18,20 +18,20 @@ name: Automate Build and Publish
 
 on:
   pull_request:
-    branches: [ 'main' ]
+    branches: [ 'develop' ] # TODO , 'main'으로 수정 필요  
 
 jobs:
   install:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm install vite --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 node_modules에 적재
+      - run: npm install --registry https://registry.npmjs.org/ # package-lock.json에 명시된 패키지를 node_modules에 적재
 
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
     needs: [ install ]
     runs-on: ubuntu-latest # 프로세스를 실행할 환경
     steps: # 실행될 스크립트
-      - run: npm build
+      - run: npm run build
 
   publish:
     needs: [ install, build ] # build 이후 순차적으로 publish이 되도록 설정
