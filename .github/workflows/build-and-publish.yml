@@ -33,8 +33,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: |
+          npm config set registry nexus.ajdlabs.kr/repository/npm-private/:_auth=YWRtaW46YWpAZGV2
           npm config fix
-          npm config set registry="https://nexus.ajdlabs.kr/repository/npm-private/" 
-          npm config set _auth="YWRcHVibGlzaF9tYW5hZ2VyOmFqQGRldg=="
-          npm config ls
-          npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/:_auth
+          npm config ls -l
+          npm config get registry
+          npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
