@@ -35,7 +35,4 @@ jobs:
       - run: |
           npm config set _auth YWRtaW46YWpAZGV2
           npm config fix
-          npm config ls -l
-          npm config get registry
           npm publish
-#          npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
