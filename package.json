@@ -1,6 +1,6 @@
 {
   "name": "fronkk",
-  "version": "0.0.32",
+  "version": "0.0.41",
   "private": false,
   "publishConfig": {
     "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
@@ -20,7 +20,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "npm-cli-login": "^1.0.0",
     "vue": "^3.0.0"
   },
   "peerDependencies": {
@@ -31,14 +30,11 @@
     "sass": "^1.69.2",
     "vite": "^4.4.5"
   },
-  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
-  "author": "",
+  "description": "Fronkk UI Framework",
+  "author": "ShinHyeJi <liexil97@gmail.com>",
   "license": "ISC",
   "main": "vite.config.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fronkker/fronkk.git"
-  },
+  "repository": "git+https://github.com/fronkker/fronkk.git",
   "bugs": {
     "url": "https://github.com/fronkker/fronkk/issues"
   },
