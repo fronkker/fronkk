@@ -18,7 +18,7 @@ name: Automate Build and Publish
 
 on:
   pull_request:
-    branches: [ 'main' ] 
+    branches: [ 'main' ]
 
 jobs:
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
@@ -34,6 +34,8 @@ jobs:
     needs: [ build ]
     steps:
       - run: |
-          npm config set _auth YWRtaW46YWpAZGV2
+          npm config set _auth="YWRtaW46YWpAZGV2"
+          npm config set registry nexus.ajdlabs.kr/repository/npm-private/:_auth=YWRtaW46YWpAZGV2
           npm config fix
-          npm publish
+          npm config ls -l
+          npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
