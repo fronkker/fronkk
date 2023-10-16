@@ -18,7 +18,7 @@ name: Automate Build and Publish
 
 on:
   pull_request:
-    branches: [ 'develop' ] # TODO , 'main'으로 수정 필요
+    branches: [ 'main' ] 
 
 jobs:
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
