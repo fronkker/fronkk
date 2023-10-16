@@ -31,6 +31,7 @@ jobs:
 
   publish:
     runs-on: self-hosted
+    needs: [ build ]
     steps:
       - run: |
           npm config set _auth YWRtaW46YWpAZGV2
