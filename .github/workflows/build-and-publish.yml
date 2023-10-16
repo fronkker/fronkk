@@ -26,8 +26,8 @@ jobs:
     steps: # 실행될 스크립트
       - uses: actions/checkout@v3
       - run: npm config fix
-      - run: npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
-      - run: npm run build
+#      - run: npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
+      - run: vite build
 
   publish:
     runs-on: self-hosted
