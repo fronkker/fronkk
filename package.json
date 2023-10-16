@@ -37,10 +37,10 @@
   "main": "vite.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quiet-space/fronkk.git"
+    "url": "git+https://github.com/fronkker/fronkk.git"
   },
   "bugs": {
-    "url": "https://github.com/quiet-space/fronkk/issues"
+    "url": "https://github.com/fronkker/fronkk/issues"
   },
-  "homepage": "https://github.com/quiet-space/fronkk#readme"
+  "homepage": "https://github.com/fronkker/fronkk#readme"
 }
