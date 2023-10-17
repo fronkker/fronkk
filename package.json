@@ -1,6 +1,6 @@
 {
   "name": "fronkk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "publishConfig": {
     "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
@@ -20,7 +20,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "npm-cli-login": "^1.0.0",
     "vue": "^3.0.0"
   },
   "peerDependencies": {
