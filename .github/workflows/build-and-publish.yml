@@ -34,6 +34,9 @@ jobs:
     needs: [ build ]
     steps:
       - run: |
+          npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/
           npm config set _auth YWRtaW46YWpAZGV2
           npm config fix
           npm publish
+          npm config delete registry
+          npm config delete _auth 
