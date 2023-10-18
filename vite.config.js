@@ -11,11 +11,7 @@ export default defineConfig({
       fileName:(format)=>`${format}.js`
     },
     rollupOptions:{
-      external:["vue"],
       output:{
-        globals:{
-          vue:"Vue"
-        },
         exports: "auto"
       }
     }
