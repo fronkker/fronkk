@@ -18,16 +18,16 @@ name: Automate Build and Publish
 
 on:
   pull_request:
-    branches: [ 'main' ] 
+    branches: [ 'main' ]
 
 jobs:
   build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
     runs-on: self-hosted # 프로세스를 실행할 환경
     steps: # 실행될 스크립트
       - uses: actions/checkout@v3
-      - run: npm config fix
-      - run: npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
-      - run: npm run build
+      - run: |
+          npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
+          npm run build
 
   publish:
     runs-on: self-hosted
@@ -35,8 +35,8 @@ jobs:
     steps:
       - run: |
           npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/
-          npm config set _auth YWRtaW46YWpAZGV2
+          npm config set _auth="${{ secrets.WRITER_TOKEN }}"
           npm config fix
           npm publish
           npm config delete registry
-          npm config delete _auth 
+          npm config delete _auth
