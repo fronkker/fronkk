@@ -18,22 +18,24 @@ name: Automate Build and Publish
 
 on:
   pull_request:
-    branches: [ 'main' ]
+    types:
+      - closed
+    branches:
+      - main
 
 jobs:
-  build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: self-hosted # 프로세스를 실행할 환경
     steps: # 실행될 스크립트
       - uses: actions/checkout@v3
-      - run: |
+      - name: Build
+        run: |
           npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
           npm run build
-
-  publish:
-    runs-on: self-hosted
-    needs: [ build ]
-    steps:
-      - run: |
+          steps:
+      - name: Publish
+        run: |
           npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/
           npm config set _auth="${{ secrets.WRITER_TOKEN }}"
           npm config fix
