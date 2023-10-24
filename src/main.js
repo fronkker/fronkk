@@ -1,8 +1,8 @@
-import TestBtn from "./components/TestBtn.vue";
 import FInput from "./components/FInput.vue";
 import FSelect from "./components/FSelect.vue";
+import FSeperator from "./components/FSeparator.vue";
 
-export {TestBtn, FInput, FSelect}
+export {FInput, FSelect, FSeperator}
 
 // TODO 여기부터 개발용
 
