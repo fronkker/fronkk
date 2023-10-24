@@ -8,7 +8,7 @@ import {ref} from "vue";
 const message = ref('레오')
 </script>
 
-<style  scoped>
+<style>
 .test{
   background-color: white;
   color:blue

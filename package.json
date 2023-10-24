@@ -1,7 +1,6 @@
 {
   "name": "@fronkker/fronkk",
   "version": "0.0.9",
-  "private": false,
   "publishConfig": {
     "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
   },
@@ -10,10 +9,12 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/umd.js"
+      "import": "./dist/es.js",
+      "require": "./dist/umd.js"
     }
   },
-  "type": "module",
+  "unpkg":  "./dist/umd.js",
+  "jsdelivr":  "./dist/umd.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -30,16 +31,8 @@
     "sass": "^1.69.2",
     "vite": "^4.4.5"
   },
-  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
-  "author": "",
+  "description": "Fronkker - Vue3 UI Component Library",
+  "author": "Fronkker",
   "license": "ISC",
-  "main": "vite.config.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fronkker/fronkk.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fronkker/fronkk/issues"
-  },
-  "homepage": "https://github.com/fronkker/fronkk#readme"
+  "repository": "git+https://github.com/fronkker/fronkk.git"
 }

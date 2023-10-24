@@ -8,15 +8,5 @@ const props = defineProps({
 })
 </script>
 
-<style scoped>
-.horizontal {
-  width: 100%;
-  height: 1px;
-  background: #eeeeee;
-}
-.vertical {
-  height: 100%;
-  width: 1px;
-  background: #eeeeee;
-}
+<style >
 </style>
