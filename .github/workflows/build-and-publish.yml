@@ -30,7 +30,7 @@ jobs:
     steps: # 실행될 스크립트
       - uses: actions/checkout@v3
       - run: |
-          npm install --registry https://registry.npmjs.org/ # package.json에 명시된 패키지를 node_modules에 적재
+          npm install
           npm run build
 
   publish:
@@ -39,9 +39,7 @@ jobs:
     needs: [ build ]
     steps:
       - run: |
-          npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/
-          npm config set _auth="${{ secrets.WRITER_TOKEN }}"
+          npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/ -L project
+          npm config set _auth="${{ secrets.WRITER_TOKEN }}" -L project
           npm config fix
           npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
-          npm config delete registry
-          npm config delete _auth
