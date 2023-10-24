@@ -1,6 +1,6 @@
 {
   "name": "@fronkker/fronkk",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "publishConfig": {
     "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
