@@ -42,6 +42,6 @@ jobs:
           npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/
           npm config set _auth="${{ secrets.WRITER_TOKEN }}"
           npm config fix
-          npm publish
+          npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
           npm config delete registry
           npm config delete _auth
