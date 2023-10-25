@@ -1,0 +1,45 @@
+# Github Actions 작성 가이드 : https://docs.github.com/actions
+# Node 작성 가이드 : https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+# Nexus 작성 가이드 : https://github.com/marketplace/actions/nexus-repository-publisher-for-github-actions
+
+# NPM 기본 registry 경로 = https://registry.npmjs.org/
+# -> 외부 라이브러리 참조 시 사용한다. (Vue, Vite...)
+# 사설 registry 경로 = https://nexus.ajdlabs.kr/repository/npm-private/
+# -> fronkk 컴포넌트의 변경사항 참조 혹은 외부에서의 참조 시 사용한다
+
+### 웹훅 시나리오
+# 1. local에서 변경사항 발생 & remote 브랜치 업데이트
+# 2. remote develop - 병합
+# 3. remote main - 병합 - 여기까지는 작업자가 반영해야 한다
+# 4. remote main - 빌드 ** 여기부터 yml 스크립트로 실행된다
+# 5. remote main - 배포
+
+name: Automate Build and Publish
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'main'
+
+jobs:
+  build: # 임의로 작성한 id, 변경 가능 (프로젝트 고유 변수명처럼 사용)
+    if: github.event.pull_request.merged == true
+    runs-on: self-hosted # 프로세스를 실행할 환경
+    steps: # 실행될 스크립트
+      - uses: actions/checkout@v3
+      - run: |
+          npm install
+          npm run build
+
+  publish:
+    if: github.event.pull_request.merged == true
+    runs-on: self-hosted
+    needs: [ build ]
+    steps:
+      - run: |
+          npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/ -L project
+          npm config set _auth="${{ secrets.WRITER_TOKEN }}" -L project
+          npm config fix
+          npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
