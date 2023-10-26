@@ -1,18 +1,16 @@
 <template>
-  <f-select
-    label="셀렉트~"
-    placeholder="플레이스홀더"
-
-    v-model="value"
-    :options="options"
+  <fk-input
+    v-model="valueForEmit"
+    icon-name="search"
+    icon-clickable
   />
 </template>
 
 <script setup>
 import {ref} from "vue";
-import FSelect from "./components/FSelect.vue";
+import FkInput from "./components/FkInput.vue";
 
-const valueForEmit = ref(1)
+const valueForEmit = ref('dsadsd')
 const value = ref({id: 1, name: 'a'})
 
 const options = [

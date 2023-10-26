@@ -3,14 +3,14 @@
     <div v-text="label"
          class="f-label"
     />
-<!--    <input :placeholder="placeholder"-->
+<!--    <fkInput :placeholder="placeholder"-->
 <!--           :value="inputValue"-->
 <!--           :type="type"-->
-<!--           class="f-input"-->
+<!--           class="f-fkInput"-->
 <!--           :class="{-->
 <!--              'invalid': !valid || !!invalid-->
 <!--           }"-->
-<!--           @input="onUpdateValue"-->
+<!--           @fkInput="onUpdateValue"-->
 <!--    >-->
 <!--    <div v-if="!valid || !!invalid"-->
 <!--         v-text="hint"-->
@@ -77,11 +77,6 @@ const props = defineProps({
   border-radius: 4px;
 }
 
-.f-input:focus {
-  &.invalid {
-    outline: 1px solid #{$error};
-  }
-}
 
 .invalid {
   border: 1px solid #{$error};
