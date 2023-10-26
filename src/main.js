@@ -1,5 +1,7 @@
-export {default as FkSeperator} from "./components/FkSeparator.vue";
-export {default as FkInput} from "./components/FkInput.vue";
+import FkSeperator from "./components/FkSeparator.vue";
+import FkInput from "./components/FkInput.vue";
+
+export {FkInput, FkSeperator}
 
 
 // import { createApp } from 'vue'

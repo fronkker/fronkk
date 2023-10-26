@@ -6,7 +6,8 @@
     "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/components"
   ],
   "type": "module",
   "module": "./dist/my-lib.js",
