@@ -66,30 +66,44 @@ input:focus {
   outline: 2px solid #184C87;
 }
 
-#fk-input {
-  position: relative;
+#fk-input-container {
 
-  display: flex;
-  align-items: center;
+  > .fk-input-label {
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
 
-  height: fit-content;
-  max-height: 100%;
+    margin-left: 2px;
+    margin-bottom: 2px;
+  }
 
-  max-width: 100%;
+  > .fk-input-hint-msg {
+    text-align: left;
+    font-size: 13px;
+    color: #e53935;
 
-  > span.material-icons {
-    position: absolute;
+    margin-left: 2px;
+    margin-top: 2px;
+  }
 
-    width: inherit;
+  > label {
+    position: relative;
 
-    color: #184C87;
+    display: flex;
+    align-items: center;
 
-    &.right {
-      right: 12px;
-    }
+    > span.material-icons {
+      position: absolute;
 
-    &.left {
-      left: 12px;
+      color: #184C87;
+
+      &.right {
+        right: 12px;
+      }
+
+      &.left {
+        left: 12px;
+      }
     }
   }
 }
