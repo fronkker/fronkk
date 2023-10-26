@@ -92,10 +92,22 @@ input:focus {
     display: flex;
     align-items: center;
 
+    > input {
+      z-index: 1;
+    }
+
     > span.material-icons {
       position: absolute;
+      z-index: 10;
 
       color: #184C87;
+
+      &.clear-icon {
+        color: dimgray;
+
+        &:hover {
+        }
+      }
 
       &.right {
         right: 12px;

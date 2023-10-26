@@ -7,10 +7,15 @@
       <fk-separator vertical/>
     </div>
 
+
+    {{valueForEmit}}
+
     <fk-input
       v-model="valueForEmit"
       icon-name="search"
       icon-clickable
+
+      clearable
 
       label="이건 라벨"
       placeholder="이건 플레이스홀더"
@@ -25,7 +30,7 @@ import {ref} from "vue";
 import FkInput from "./components/FkInput.vue";
 import FkSeparator from "./components/FkSeparator.vue";
 
-const valueForEmit = ref('')
+const valueForEmit = ref('2222ggg')
 const value = ref({id: 1, name: 'a'})
 
 const options = [
