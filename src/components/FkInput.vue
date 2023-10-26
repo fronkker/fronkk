@@ -10,6 +10,7 @@
 
     <input :value="modelValue"
            :style="!!iconName && (leftIcon ? 'padding-left: 45px' : 'padding-right: 45px')"
+           type="type"
     >
 
     <span v-if="!!iconName && !leftIcon"
@@ -24,6 +25,7 @@
 <script setup>
 const props = defineProps({
   modelValue: [String, Number],
+  type: String,
 
   /* Icon */
   iconName: [String, null],
