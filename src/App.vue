@@ -1,14 +1,19 @@
 <template>
-  <fk-input
-    v-model="valueForEmit"
-    icon-name="search"
-    icon-clickable
-  />
+<!--  <fk-input-->
+<!--    v-model="valueForEmit"-->
+<!--    icon-name="search"-->
+<!--    icon-clickable-->
+<!--  />-->
+  <fk-pagination v-model="page" :size="10" :totalPages="21" is-show-last-page is-show-first-page/>
 </template>
 
 <script setup>
 import {ref} from "vue";
-import {FkInput} from "../dist/my-lib.js";
+// import {FkInput} from "../dist/my-lib.js";
+import FkPagination from "./components/FkPagination.vue";
+
+
+const page = ref(0)
 
 const valueForEmit = ref('dsadsd')
 const value = ref({id: 1, name: 'a'})
@@ -37,5 +42,5 @@ const regExp2 = /[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]/gi
 </script>
 
 <style lang="scss" scoped>
-
+@import '@/assets/css/_pagination';
 </style>

@@ -1,6 +1,6 @@
 {
   "name": "@fronkker/fronkk",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": false,
   "publishConfig": {
     "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
@@ -23,7 +23,7 @@
   },
   "style": "./dist/style.css",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 80",
     "build": "vite build",
     "preview": "vite preview"
   },
