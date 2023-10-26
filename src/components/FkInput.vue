@@ -22,19 +22,26 @@
   </span>
   </div>
 </template>
-<script setup>
-const props = defineProps({
-  modelValue: [String, Number],
-  type: String,
+<script>
+export default {
+  props: {
+    modelValue: [String, Number],
+    type: String,
 
-  /* Icon */
-  iconName: [String, null],
-  leftIcon: Boolean,
-  iconClickable: Boolean
-})
+    /* Icon */
+    iconName: [String, null],
+    leftIcon: Boolean,
+    iconClickable: Boolean
+  },
+  setup(props) {
+    const onClickIcon = () => {
+      console.log('icon Click !!!')
+    }
 
-const onClickIcon = () => {
-  console.log('icon Click !!!')
+    return {
+      onClickIcon
+    }
+  }
 }
 
 // 1. validation
