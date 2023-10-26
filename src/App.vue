@@ -1,5 +1,9 @@
 <template>
-  <fk-input v-model="valueForEmit" />
+  <fk-input
+    v-model="valueForEmit"
+    icon-name="search"
+    icon-clickable
+  />
 </template>
 
 <script setup>

@@ -1,9 +1,43 @@
 <template>
-  <input :value="modelValue" />
+  <div id="fk-input">
+    <span v-if="!!iconName && leftIcon"
+          class="material-icons left"
+          :class="`${iconClickable && 'clickable'}`"
+          @click="onClickIcon"
+    >
+    {{ iconName }}
+  </span>
+
+    <input :value="modelValue"
+           :style="!!iconName && (leftIcon ? 'padding-left: 45px' : 'padding-right: 45px')"
+    >
+
+    <span v-if="!!iconName && !leftIcon"
+          class="material-icons right"
+          :class="`${iconClickable && 'clickable'}`"
+          @click="onClickIcon"
+    >
+    {{ iconName }}
+  </span>
+  </div>
 </template>
 <script setup>
 const props = defineProps({
-  modelValue: [String, Number]
-})
-</script>
+  modelValue: [String, Number],
 
+  /* Icon */
+  iconName: [String, null],
+  leftIcon: Boolean,
+  iconClickable: Boolean
+})
+
+const onClickIcon = () => {
+  console.log('icon Click !!!')
+}
+
+// 1. validation
+// 2. prefix
+// 3. suffix
+// 4. format
+
+</script>
