@@ -75,6 +75,18 @@ button:focus-visible {
   text-align: center;
 }
 
+input {
+  border: 1px solid #C0C8D0;
+  padding: 14px 13px 14px 13px;
+  border-radius: 4px;
+}
+
+input:focus {
+  border: 0;
+  outline: 2px solid #184C87;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
