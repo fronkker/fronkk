@@ -8,7 +8,7 @@
 
 <script setup>
 import {ref} from "vue";
-import FkInput from "./components/FkInput.vue";
+import {FkInput} from "../dist/my-lib.js";
 
 const valueForEmit = ref('dsadsd')
 const value = ref({id: 1, name: 'a'})
