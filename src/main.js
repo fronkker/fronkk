@@ -1,9 +1,9 @@
 // import FInput from "./components/FInput.vue";
 // import FSelect from "./components/FSelect.vue";
-// import FSeperator from "./components/FSeparator.vue";
+import FkSeperator from "./components/FkSeparator.vue";
 import FkInput from "./components/FkInput.vue";
 
-export {FkInput}
+export {FkInput, FkSeperator}
 
 // TODO 여기부터 개발용
 //
