@@ -1,21 +1,31 @@
 <template>
-<!--  <fk-input-->
-<!--    v-model="valueForEmit"-->
-<!--    icon-name="search"-->
-<!--    icon-clickable-->
-<!--  />-->
-  <fk-pagination v-model="page" :size="10" :totalPages="21" is-show-last-page is-show-first-page/>
+  <div
+    style="width: 700px; height: 700px; border: 1px solid grey; border-radius: 3px; display: flex; flex-direction: row;">
+
+    <div
+      style="width: 150px; height: 150px; background: pink; display: flex; justify-content: center; align-items: center; margin: 16px;">
+      <fk-separator vertical/>
+    </div>
+
+    <fk-input
+      v-model="valueForEmit"
+      icon-name="search"
+      icon-clickable
+
+      label="이건 라벨"
+      placeholder="이건 플레이스홀더"
+      hint-message="이건 힌트메시지 "
+    />
+
+  </div>
 </template>
 
 <script setup>
 import {ref} from "vue";
-// import {FkInput} from "../dist/my-lib.js";
-import FkPagination from "./components/FkPagination.vue";
+import FkInput from "./components/FkInput.vue";
+import FkSeparator from "./components/FkSeparator.vue";
 
-
-const page = ref(0)
-
-const valueForEmit = ref('dsadsd')
+const valueForEmit = ref('')
 const value = ref({id: 1, name: 'a'})
 
 const options = [
@@ -43,4 +53,9 @@ const regExp2 = /[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]/gi
 
 <style lang="scss" scoped>
 @import '@/assets/css/_pagination';
+
+// fk-input Style 조정하는 법!!
+:deep(.fk-input) {
+  width: 300px;
+}
 </style>

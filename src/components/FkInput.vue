@@ -1,5 +1,5 @@
 <template>
-  <div id="fk-input">
+  <label id="fk-input">
     <span v-if="!!iconName && leftIcon"
           class="material-icons left"
           :class="`${iconClickable && 'clickable'}`"
@@ -9,6 +9,7 @@
   </span>
 
     <input :value="modelValue"
+           class="fk-input"
            :style="!!iconName && (leftIcon ? 'padding-left: 45px' : 'padding-right: 45px')"
            type="type"
     >
@@ -20,28 +21,27 @@
     >
     {{ iconName }}
   </span>
-  </div>
+  </label>
 </template>
 <script>
 export default {
   props: {
     modelValue: [String, Number],
     type: String,
+    label: String,
+    placeholder: String,
+    hintMessage: String,
 
     /* Icon */
     iconName: [String, null],
     leftIcon: Boolean,
     iconClickable: Boolean
-  },
-  setup(props) {
-    const onClickIcon = () => {
-      console.log('icon Click !!!')
-    }
-
-    return {
-      onClickIcon
-    }
   }
+)
+
+const emit = defineEmits(['click'])
+const onClickIcon = () => {
+  emit('click')
 }
 
 // 1. validation
