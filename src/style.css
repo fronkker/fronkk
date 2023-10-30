@@ -80,10 +80,10 @@ input:focus {
   > .fk-input-hint-msg {
     text-align: left;
     font-size: 13px;
-    color: #e53935;
+    color: #D32F2F;
 
     margin-left: 2px;
-    margin-top: 2px;
+    margin-top: 3px;
   }
 
   > label {
@@ -105,9 +105,12 @@ input:focus {
       color: #184C87;
 
       &.clear-icon {
+        font-size: 18px;
         color: dimgray;
 
         &:hover {
+          background: #f6f6f6;
+          border-radius: 10px;
         }
       }
 
