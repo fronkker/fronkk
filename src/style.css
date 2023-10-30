@@ -92,6 +92,8 @@ input:focus {
     display: flex;
     align-items: center;
 
+    width: fit-content;
+
     > input {
       z-index: 1;
     }

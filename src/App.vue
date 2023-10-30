@@ -1,26 +1,28 @@
 <template>
   <div
-    style="width: 700px; height: 700px; border: 1px solid grey; border-radius: 3px; display: flex; flex-direction: row;">
+    style="width: 700px; height: 700px; border: 1px solid grey; border-radius: 3px; display: flex; flex-direction: column; margin-right: auto; margin-left: auto;">
 
-    <div
-      style="width: 150px; height: 150px; background: pink; display: flex; justify-content: center; align-items: center; margin: 16px;">
-      <fk-separator vertical/>
+    <div>
+      Vmodel :: {{ valueForEmit }}
     </div>
 
+    <fk-separator/>
 
-    {{valueForEmit}}
+    <div style="display: flex; flex-direction: column; margin: auto auto auto auto;">
 
-    <fk-input
-      v-model="valueForEmit"
-      icon-name="search"
-      icon-clickable
+      <fk-input
+        v-model="valueForEmit"
+        icon-name="search"
+        icon-clickable
 
-      clearable
+        clearable
 
-      label="이건 라벨"
-      placeholder="이건 플레이스홀더"
-      hint-message="이건 힌트메시지 "
-    />
+        label="이건 라벨"
+        placeholder="이건 플레이스홀더"
+        hint-message="이건 힌트메시지 "
+      />
+
+    </div>
 
   </div>
 </template>
@@ -57,7 +59,7 @@ const regExp2 = /[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]/gi
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/_pagination';
+@import './assets/css/_pagination';
 
 // fk-input Style 조정하는 법!!
 :deep(.fk-input) {
