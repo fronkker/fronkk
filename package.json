@@ -1,12 +1,13 @@
 {
   "name": "@fronkker/fronkk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "publishConfig": {
     "registry": "https://nexus.ajdlabs.kr/repository/npm-private/"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/components"
   ],
   "type": "module",
   "module": "./dist/my-lib.js",
@@ -22,7 +23,7 @@
   },
   "style": "./dist/style.css",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 80",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -37,7 +38,7 @@
     "sass": "^1.69.2",
     "vite": "^4.4.5"
   },
-  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
+  "description": "Fronkker - Vue UI Library",
   "author": "",
   "license": "ISC",
   "main": "vite.config.js",
