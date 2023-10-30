@@ -1,5 +1,5 @@
 <template>
-  <div :class="vertical ? 'vertical' : 'horizontal'" style="margin: 2px"/>
+  <div :class="vertical ? 'vertical' : 'horizontal'" />
 </template>
 
 <script setup>

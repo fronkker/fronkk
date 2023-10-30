@@ -1,54 +1,241 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  font-display: swap;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  font-display: swap;
 }
 
-button:hover {
-  border-color: #646cff;
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-display: swap;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
 }
 
-.card {
-  padding: 2em;
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');
+  font-weight: 900;
+  font-display: swap;
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  font-family: Pretendard;
+  padding: 3rem;
+}
+
+.fk-page {
+  width: 90%;
+  height: 85vh;
+
+  border: 1px solid #CFD8DC;
+  border-radius: 15px;
+
+  background: white;
+  box-shadow: 3px 3px 10px #CFD8DC;
+
+  margin: auto auto auto auto;
+
+  display: flex;
+  flex-direction: row;
+
+  .fk-tabs {
+    width: 200px;
+    height: 100%;
+
+    background: #F0F4FA;
+
+    border-right: 1px solid #eaeaea;
+    box-shadow: 5px 0 5px #eaeaea5f;
+    border-radius: 16px 0 0 0;
+
+    .fk-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-align: center;
+
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      background: white;
+      border-radius: 16px 0 0 0;
+      border-bottom: 1px solid #eaeaea;
+
+      margin-bottom: 20px;
+    }
+
+    .fk-tab {
+      font-size: 14px;
+
+      height: 40px;
+      margin-left: 40px;
+      font-weight: 300;
+
+      .selected-component {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .fk-guide--section {
+    width: 85%;
+    margin-left: 10px;
+
+    .fk-guide--title {
+      font-size: 20px;
+      font-weight: 700;
+
+      text-align: left;
+
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .fk-guide--docs {
+      background: greenyellow;
+      height: 100%;
+      padding-bottom: 20%;
+
+      overflow: hidden;
+    }
+
+    .fk-guide--label {
+      font-size: 20px;
+      text-align: left;
+      font-weight: bolder;
+    }
+
+    .fk-guide--content {
+      text-align: left;
+
+      border: 3px solid #3918D9;
+      border-radius: 5px;
+      background: #222;
+      color: white;
+
+      width: 100%;
+      height: 200px;
+
+      .fk-guide--tabs {
+
+        display: flex;
+
+        .fk-guide--tab {
+          width: 80px;
+          height: 30px;
+          text-align: center;
+
+          &.selected {
+            border-bottom: 3px solid #3918D9;
+          }
+        }
+      }
+
+      .fk-guide--tab-section {
+        display: flex;
+        flex-direction: row;
+
+        height: calc(200px - 30px - 3px);
+
+        border-top: 1px solid white;
+
+        .fk-guide--tab-section--left {
+          padding-top: 20px;
+          padding-left: 20px;
+
+          border-right: 1px solid white;
+
+          width: 150px;
+
+          > div {
+            padding-left: 12px;
+
+            &.selected {
+              border-left: 2px solid #184C87;
+
+              font-weight: bold;
+            }
+          }
+        }
+
+        .fk-guide--tab-section--right {
+          width: 100%;
+
+          padding-top: 20px;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+
+  .page-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: greenyellow;
+
+    margin-top: auto;
+    margin-bottom: auto;
+
+    .title {
+      font-size: 36px;
+      font-weight: bolder;
+      color: dimgray;
+    }
+
+    .description {
+      font-size: 14px;
+      font-weight: lighter;
+      color: dimgray;
+    }
+  }
 }
 
 .clickable {

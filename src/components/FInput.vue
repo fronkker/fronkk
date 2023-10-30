@@ -3,14 +3,14 @@
     <div v-text="label"
          class="f-label"
     />
-<!--    <fkInput :placeholder="placeholder"-->
+<!--    <input :placeholder="placeholder"-->
 <!--           :value="inputValue"-->
 <!--           :type="type"-->
-<!--           class="f-fkInput"-->
+<!--           class="f-input"-->
 <!--           :class="{-->
 <!--              'invalid': !valid || !!invalid-->
 <!--           }"-->
-<!--           @fkInput="onUpdateValue"-->
+<!--           @input="onUpdateValue"-->
 <!--    >-->
 <!--    <div v-if="!valid || !!invalid"-->
 <!--         v-text="hint"-->

@@ -1,39 +1,62 @@
 <template>
-  <div
-    style="width: 700px; height: 700px; border: 1px solid grey; border-radius: 3px; display: flex; flex-direction: column; margin-right: auto; margin-left: auto;">
+  <div class="fk-page">
+    <div class="fk-tabs">
+      <div class="fk-title">Fronkk UI Library</div>
 
-    <div>
-      Vmodel :: {{ valueForEmit }}
-    </div>
-
-    <fk-separator/>
-
-    <div style="display: flex; flex-direction: column; margin: auto auto auto auto;">
-
-      <fk-input
-        v-model="valueForEmit"
-        icon-name="search"
-        icon-clickable
-
-        clearable
-
-        label="이건 라벨"
-        placeholder="이건 플레이스홀더"
-        hint-message="이건 힌트메시지 "
-      />
+      <div class="fk-tab clickable">{{'installation'}}</div>
+      <div class="fk-tab clickable" v-for="component of components" @click="selectedComp = component">
+        <div :class="selectedComp === component && 'selected-component'">
+          {{ component }}
+        </div>
+      </div>
 
     </div>
+
+    <div class="fk-guide--section">
+
+      <div class="fk-guide--title" v-text="`FK-${selectedComp.toUpperCase()}`"/>
+
+      <fk-separator/>
+
+      <!--      <fk-input-->
+      <!--        v-model="valueForEmit"-->
+
+      <!--        clearable-->
+
+      <!--        label="이건 라벨"-->
+      <!--        placeholder="이건 플레이스홀더"-->
+      <!--        hint-message="이건 힌트메시지"-->
+      <div class="fk-guide--docs">
+      <md-block src="../docs/guide/input/input.md" />
+      </div>
+
+    </div>
+
 
   </div>
 </template>
 
 <script setup>
-import {ref} from "vue";
-import FkInput from "./components/FkInput.vue";
+import {computed, ref} from "vue";
+import NoItem from "../docs/guide/noItem.vue"
 import FkSeparator from "./components/FkSeparator.vue";
 
 const valueForEmit = ref('2222ggg')
 const value = ref({id: 1, name: 'a'})
+
+const components = ['input', 'pagination', 'separator']
+const selectedComp = ref(components[0])
+
+const onClickComponent = computed(() => {
+  switch (selectedComp.value) {
+    case components[0]:
+      return InputGuide
+
+    default:
+      return NoItem
+  }
+})
+
 
 const options = [
   {

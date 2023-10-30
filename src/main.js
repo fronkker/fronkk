@@ -5,9 +5,6 @@ import './style.css'
 
 export {FkInput, FkSeperator,FkPagination}
 
-
-// import './assets/css/_reset.scss'
-
 import { createApp } from 'vue'
 import App from './App.vue'
 const app = createApp(App)
