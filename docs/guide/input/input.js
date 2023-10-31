@@ -1,4 +1,4 @@
-### PROPS
+export const inputGuide = `### PROPS
 + modelValue
   + String, Number
   + v-model 가능, 반응형 입력값
@@ -33,3 +33,4 @@
 + iconClickable
   + Boolean
   + 아이콘 클릭 가능 여부
+`
