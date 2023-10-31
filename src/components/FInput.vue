@@ -77,11 +77,6 @@ const props = defineProps({
   border-radius: 4px;
 }
 
-.f-input:focus {
-  &.invalid {
-    outline: 1px solid #{$error};
-  }
-}
 
 .invalid {
   border: 1px solid #{$error};

@@ -1,5 +1,5 @@
 <template>
-  <div :class="vertical ? 'vertical' : 'horizontal'"  />
+  <div :class="vertical ? 'vertical' : 'horizontal'" />
 </template>
 
 <script setup>
@@ -14,6 +14,7 @@ const props = defineProps({
   height: 1px;
   background: #eeeeee;
 }
+
 .vertical {
   height: 100%;
   width: 1px;
