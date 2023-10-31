@@ -1,8 +1,8 @@
-name: Push Tag And Deploy Guide Pages 
+name: Push Tag And Deploy Guide Pages
 
 on:
   push:
-    tags:        
+    tags:
       - '*'
 jobs:
   build-and-deploy:
@@ -13,13 +13,14 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run build 
+          npm run build
           npm config set registry https://nexus.ajdlabs.kr/repository/npm-private/ -L project
           npm config set _auth="${{ secrets.WRITER_TOKEN }}" -L project
           npm config fix
           npm publish --registry https://nexus.ajdlabs.kr/repository/npm-private/
       - name: Git Config
         run: |
+          git remote rename origin origin-repo
           git remote add origin https://github.com/fronkker/fronkker.github.io.git
-          git branch -M main
-          git push -u origin main
+          git push -u origin --all
+          git push -u origin --tags
