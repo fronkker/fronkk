@@ -110,5 +110,5 @@ const onClickNextPage = () => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/_pagination.scss'
+@import '../assets/css/_pagination.scss';
 </style>
