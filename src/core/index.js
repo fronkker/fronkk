@@ -35,13 +35,13 @@ export const LEFT_MENUS = {
     guide: marked(InputGuide),
     component: computed(() => FkInput)
   },
-  PAGINATION: {
-    id: 3,
-    title: 'fk-pagination',
-    type: MENU_TYPES.COMPONENT,
-    guide:marked(NoItemGuide),
-    component: computed(() => FkPagination)
-  },
+  // PAGINATION: {
+  //   id: 3,
+  //   title: 'fk-pagination',
+  //   type: MENU_TYPES.COMPONENT,
+  //   guide:marked(NoItemGuide),
+  //   component: computed(() => FkPagination)
+  // },
   SEPARATOR: {
     id: 4,
     title: 'fk-separator',

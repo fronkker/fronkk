@@ -42,24 +42,20 @@
 </template>
 
 <script setup>
-import {computed, ref} from "vue";
+import {ref} from "vue";
 import FkSeparator from "./components/FkSeparator.vue";
-import {marked} from "marked";
 import {LEFT_MENUS, MENU_TYPES} from "./core/index.js";
-import FkInput from "./components/FkInput.vue";
 
 const valueForEmit = ref('2222ggg')
 const value = ref({id: 1, name: 'a'})
 
-// const markedInputGuide = ref(marked(inputGuide))
-
-const leftMenus = [LEFT_MENUS.INSTALLATION, LEFT_MENUS.INPUT, LEFT_MENUS.PAGINATION, LEFT_MENUS.SEPARATOR]
+const leftMenus = Object.values(LEFT_MENUS).filter(({id}) => !!id)
 
 const selectedLeftMenu = ref(LEFT_MENUS.INDEX)
-const selectedComponent = computed(() => selectedLeftMenu.value.component)
 const onClickTab = (tab) => {
   selectedLeftMenu.value = tab
 }
+
 </script>
 
 <style lang="scss" scoped>
