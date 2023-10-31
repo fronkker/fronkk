@@ -1,15 +1,13 @@
 <template>
   <div class="fk-page">
     <div class="fk-tabs">
-      <div class="fk-title">Fronkk UI Library</div>
+      <div class="fk-title clickable" @click="onClickTab(LEFT_MENUS.INDEX)">Fronkk UI Library</div>
 
       <div class="fk-tab">
-        <div class="clickable">{{ 'installation' }}</div>
-        <div class="clickable" v-for="component of components" @click="selectedComp = component">
-          <div :class="selectedComp === component && 'selected-component'">
-            {{ component }}
-          </div>
-        </div>
+        <div class="clickable"
+             v-for="menu of leftMenus"
+             :class="selectedLeftMenu.id === menu.id && 'selected--left-menu'"
+             @click="onClickTab(menu)" v-text="menu.title"/>
       </div>
 
       <div class="fk-tab--bottom">
@@ -28,21 +26,14 @@
 
     <div class="fk-guide--section">
 
-      <div class="fk-guide--title" v-text="`FK-${selectedComp.toUpperCase()}`"/>
+      <div v-if="selectedLeftMenu?.id !== LEFT_MENUS.INDEX.id" class="fk-guide--title" v-text="selectedLeftMenu.title"/>
+      <fk-separator v-if="selectedLeftMenu?.id !== LEFT_MENUS.INDEX.id"/>
 
-      <fk-separator/>
+      <div class="fk-guide--component" v-if="selectedLeftMenu.type === MENU_TYPES.COMPONENT">
+        <component :is="selectedLeftMenu.component"/>
+      </div>
 
-      <!--      <fk-input-->
-      <!--        v-model="valueForEmit"-->
-
-      <!--        clearable-->
-
-      <!--        label="이건 라벨"-->
-      <!--        placeholder="이건 플레이스홀더"-->
-      <!--        hint-message="이건 힌트메시지"-->
-      <!--      <div class="fk-guide&#45;&#45;docs">-->
-      <div class="fk-guide--docs" v-html="markedInputGuide"></div>
-      <!--      </div>-->
+      <div class="fk-guide--docs" v-html="selectedLeftMenu.guide"/>
 
     </div>
 
@@ -51,49 +42,27 @@
 </template>
 
 <script setup>
-import {computed, ref} from "vue";
-import NoItem from "../docs/guide/noItem.vue"
-import {inputGuide} from "../docs/guide/input/input.js"
+import {ref} from "vue";
 import FkSeparator from "./components/FkSeparator.vue";
-import {marked} from "marked";
+import {LEFT_MENUS, MENU_TYPES} from "./core/index.js";
 
 const valueForEmit = ref('2222ggg')
 const value = ref({id: 1, name: 'a'})
 
-const markedInputGuide = ref(marked(inputGuide))
+const leftMenus = Object.values(LEFT_MENUS).filter(({id}) => !!id)
 
-const components = ['input', 'pagination', 'separator']
-const selectedComp = ref(components[0])
+const selectedLeftMenu = ref(LEFT_MENUS.INDEX)
+const onClickTab = (tab) => {
+  selectedLeftMenu.value = tab
+}
 
-
-const options = [
-  {
-    id: 1,
-    name: 'a'
-  },
-  {
-    id: 2,
-    name: 'b'
-  },
-  {
-    id: 3,
-    name: 'c'
-  },
-  {
-    id: 4,
-    name: 'd'
-  },
-]
-
-const regExp = /^(010|011|016|017|018|019)-\d{3,4}-\d{4}$/u
-const regExp2 = /[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]/gi
 </script>
 
 <style lang="scss" scoped>
 @import './assets/css/_pagination';
 
-// fk-input Style 조정하는 법!!
-:deep(.fk-input) {
-  width: 300px;
+// 외부에서 input Style 조정할때 선택자
+:deep(#fk-input) {
+  width: 200px;
 }
 </style>

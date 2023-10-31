@@ -1,8 +1,8 @@
 <template>
-  <div id="fk-input-container">
+  <div>
     <div class="fk-input-label">{{ label }}</div>
 
-    <label for="fk-input-container"
+    <label for="fk-input"
     >
       <span v-if="!!iconName && leftIcon"
             class="material-icons left"
@@ -13,8 +13,8 @@
   </span>
 
       <input :value="modelValue"
+             id="fk-input"
              :placeholder="placeholder"
-             class="fk-input"
              :style="!!iconName && (leftIcon ? 'padding-left: 45px' : 'padding-right: 45px')"
              type="type"
 
