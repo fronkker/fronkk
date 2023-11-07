@@ -1,0 +1,19 @@
+.fk-button {
+  width: auto;
+  height: 48px;
+  line-height: 34px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+
+
+  &.dense {
+    height: 36px;
+    line-height: 20px;
+  }
+
+  &.outlined {
+    border-width: 1px;
+    border-style: solid;
+  }
+}

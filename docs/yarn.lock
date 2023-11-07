@@ -154,7 +154,7 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.52.0.tgz#78fe5f117840f69dc4a353adf9b9cd926353378c"
   integrity sha512-mjZVbpaeMZludF2fsWLD0Z9gCref1Tk4i9+wddjRvpUNqqcndPkBD09N/Mapey0b3jaXbLm2kICwFv2E64QinA==
 
-"@fronkker/fronkk@../":
+"@fronkker/fronkk@file:..":
   version "0.0.3"
   dependencies:
     vue "^3.0.0"
