@@ -16,13 +16,14 @@
     </div>
 
     <section class="fk-guide--section">
-
+      <FkBtn label="Button" dense outlined/>
     </section>
   </main>
 </template>
 
 <script setup>
 import {ref} from "vue";
+import {FkBtn} from "../../src/main";
 
 const selected = ref()
 </script>
@@ -108,7 +109,7 @@ const selected = ref()
     max-width: 80%;
     height: 100%;
     border-radius: 0 15px 15px 0;
-    padding-left: 10px;
+    padding: 16px;
 
     display: flex;
     flex-direction: column;

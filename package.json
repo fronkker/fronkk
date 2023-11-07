@@ -23,7 +23,6 @@
   },
   "style": "./dist/style.css",
   "scripts": {
-    "dev": "vite --port 80",
     "build": "vite build",
     "preview": "vite preview"
   },
