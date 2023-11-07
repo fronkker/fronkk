@@ -10,7 +10,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@fronkker/fronkk": "../",
+    "@fronkker/fronkk": "file:../",
     "vue": "^3.3.4"
   },
   "devDependencies": {

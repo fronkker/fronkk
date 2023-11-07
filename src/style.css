@@ -1,3 +1,7 @@
+@import "assets/css/_reset.scss";
+@import "assets/css/_color.scss";
+@import "assets/css/common.scss";
+
 @font-face {
   font-family: 'Pretendard';
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
