@@ -4,8 +4,8 @@
 
 <script setup>
 const props = defineProps({
-  vertical: {type: Boolean}
-})
+  vertical: { type: Boolean },
+});
 </script>
 
 <style scoped>
