@@ -3,27 +3,24 @@
     <div class="fk-tabs">
       <div class="fk-title clickable">Fronkk UI Library</div>
 
-      <nav class="fk-tab">
-
-      </nav>
+      <nav class="fk-tab"></nav>
 
       <footer class="fk-tab--bottom">
         <a href="https://github.com/fronkker/fronkk" target="_blank">
-          <img class="github-icon" src="./assets/img/github-mark-white.png" alt="깃헙 바로가기 아이콘">
+          <img class="github-icon" src="./assets/img/github-mark-white.png" alt="깃헙 바로가기 아이콘" />
         </a>
       </footer>
-
     </div>
 
     <section class="fk-guide--section">
-      <FkBtn label="Button" dense outlined/>
+      <FkBtn label="Button" dense outlined />
     </section>
   </main>
 </template>
 
 <script setup>
-import {ref} from "vue";
-import {FkBtn} from "../../src/main";
+import {ref} from 'vue'
+import {FkBtn} from '../../src/main'
 
 const selected = ref()
 </script>
@@ -31,13 +28,14 @@ const selected = ref()
 <style lang="scss" scoped>
 .fk-page {
   width: 90%;
+
   height: 85vh;
 
-  border: 1px solid #CFD8DC;
+  border: 1px solid #cfd8dc;
   border-radius: 15px;
 
   background: white;
-  box-shadow: 3px 3px 10px #CFD8DC;
+  box-shadow: 3px 3px 10px #cfd8dc;
 
   margin: auto auto auto auto;
 
@@ -114,7 +112,6 @@ const selected = ref()
     display: flex;
     flex-direction: column;
 
-
     .fk-guide--title {
       font-size: 20px;
       font-weight: 700;
@@ -166,7 +163,7 @@ const selected = ref()
     .fk-guide--content {
       text-align: left;
 
-      border: 3px solid #3918D9;
+      border: 3px solid #3918d9;
       border-radius: 5px;
       background: #222;
       color: white;
@@ -183,7 +180,7 @@ const selected = ref()
           text-align: center;
 
           &.selected {
-            border-bottom: 3px solid #3918D9;
+            border-bottom: 3px solid #3918d9;
           }
         }
       }
@@ -208,7 +205,7 @@ const selected = ref()
             padding-left: 12px;
 
             &.selected {
-              border-left: 2px solid #184C87;
+              border-left: 2px solid #184c87;
 
               font-weight: bold;
             }
