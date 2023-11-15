@@ -1,6 +1,6 @@
 @import "assets/css/_reset.scss";
-@import "assets/css/_color.scss";
-@import "assets/css/common.scss";
+/*@import "assets/css/_color.scss";*/
+@import "assets/css/_common.scss";
 
 @font-face {
   font-family: 'Pretendard';
