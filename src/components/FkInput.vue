@@ -18,7 +18,7 @@
           !!iconName &&
           (leftIcon ? 'padding-left: 45px' : 'padding-right: 45px')
         "
-        type="type"
+        :type="type"
         @change="onUpdateModelValue"
       />
 
@@ -67,7 +67,7 @@ const onClear = () => {
   emit("update:modelValue", null);
 };
 
-const onUpdateModelValue = ({ target }) => {
+const onUpdateModelValue = ({target}) => {
   emit("update:modelValue", target.value);
 };
 const onClickIcon = () => {
