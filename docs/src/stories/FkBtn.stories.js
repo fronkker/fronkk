@@ -2,7 +2,7 @@ import {FkBtn} from '@fronkker/fronkk';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
-  title: 'Example/FkBtn',
+  title: 'fronkk/FkBtn',
   component: FkBtn,
   tags: ['autodocs'],
   argTypes: {
@@ -22,7 +22,7 @@ export default {
 export const Dense = {
   args: {
     dense: true,
-  },
+  }
 };
 
 export const Outlined = {

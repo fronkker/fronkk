@@ -1,4 +1,7 @@
 /** @type { import('@storybook/vue3').Preview } */
+
+import '@fronkker/fronkk/dist/style.css'
+
 const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },

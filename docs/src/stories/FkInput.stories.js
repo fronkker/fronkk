@@ -2,7 +2,7 @@ import {FkInput} from '@fronkker/fronkk';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
-  title: 'Example/FkInput',
+  title: 'fronkk/FkInput',
   component: FkInput,
   tags: ['autodocs'],
 };
